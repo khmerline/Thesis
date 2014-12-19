@@ -1,0 +1,7 @@
+  		
+  		<tr>
+            <td><strong><%= line_item.product.title %></strong></td>
+            <td><%= line_item.quantity%>&times;</td>
+            <td><%= number_to_currency(line_item.product.price) %></td>
+            <td><%= link_to 'Delete', line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       </tr>

@@ -1,0 +1,98 @@
+<%= render 'layouts/nav' %>
+
+ <ul class="nav navbar-nav navbar-right">
+
+          <li class=""data-toggle="modal" data-target="#myModal">
+
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+
+              <span class="glyphicon glyphicon-shopping-cart cart-text" id="cart">
+
+                <span id="total-cart"><%= render 'layouts/cart'%></span>&nbsp;<b class="caret"></b> </a>
+                <ul class="dropdown-menu">
+
+                  <div id="cart">
+
+                    
+
+                    &nbsp;<%= render @cart %>
+
+                  
+
+
+                  </div>
+
+                </ul>
+
+          
+      </div>
+
+    </div>
+  </nav>
+  
+<div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="jumbotron">
+            <legend>Welcome To Our Website!</legend>
+            <ul id="text-size">If you want a great site, you’ve got to test. After you’ve worked on a site for even a few weeks, you can’t see it freshly anymore. You know too much. The only way to find out if it really works is to test it.</ul>
+          </div>
+          <div class="row">
+            <% @products.each do |product| %>
+            <div class="col-6 col-sm-6 col-lg-4">
+              <legend><%= link_to product.title, store_show_path(product_id: product) %></legend>
+              <%= image_tag product.image_url, :class => 'img' %>
+              <p><%= sanitize(product.description) %></p>
+              <%= number_to_currency (product.price) %>
+              <p><%= button_to 'Add to Cart', line_items_path(product_id: product),
+remote: true %>
+</p>
+            </div><!--/span-->
+            <% end %>
+            
+          </div><!--/row-->
+        </div><!--/span-->
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <div class="list-group">
+            <legend>Catagories</legend>
+            	<% @products.each do |product|%>
+            	<ul>&raquo;<%= link_to product.title, store_show_path(product_id: product) %></ul>
+            	<% end %>
+          </div>
+        </div><!--/span-->
+      </div><!--/row-->
+
+   <legend></legend>
+
+   
+      <div class="row">
+        <div class="col-md-4">
+          <legend>Ruby On Rails</legend>
+          <p>&raquo;Rails is a web application development framework written in the Ruby language. It is designed to make programming web applications easier by making assumptions about what every developer needs to get started. It allows you to write less code while accomplishing more than many other languages and frameworks. Experienced Rails developers also report that it makes web application development more fun. </p>
+          
+        </div>
+        <div class="col-md-4">
+          <legend>Bootstrap</legend>
+          <p>&raquo;Bootstrap is a powerful front-end framework for faster and easier web development. It includes HTML and CSS based design templates for common user interface components like Typography, Forms, Buttons, Tables, Navigations, Dropdowns, Alerts, Modals, Tabs, Accordion, Carousel and many other as well as optional JavaScript extensions. Bootstrap also gives you ability to create responsive layout with much less efforts. </p>
+          
+       </div>
+        <div class="col-md-4">
+          <legend>jQuery</legend>
+          <p>&raquo;jQuery is a lightweight, "write less, do more", JavaScript library.
+
+			The purpose of jQuery is to make it much easier to use JavaScript on your website.
+
+			jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps them into methods that you can call with a single line of code.
+
+			jQuery also simplifies a lot of the complicated things from JavaScript, like AJAX calls and DOM manipulation.</p>
+          
+        </div>
+      </div>
+<hr>
+</div>
