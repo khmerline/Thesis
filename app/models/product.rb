@@ -10,6 +10,7 @@ class Product < ActiveRecord::Base
 	message: 'must be a URL for GIF, JPG or PNG image.'
 	}
 	has_many :line_items
+	belongs_to :user
 
 	before_destroy :ensure_not_referenced_by_any_line_item
 		private

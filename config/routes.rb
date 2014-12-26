@@ -1,4 +1,6 @@
 Thesis::Application.routes.draw do
+  get "user/index"
+  devise_for :users
   resources :orders
 
   resources :line_items

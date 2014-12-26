@@ -23,4 +23,19 @@
   <dt>Pay type:</dt>
   <dd><%= @order.pay_type %></dd>
 
+  
+
 </dl>
+<% current_user.orders.each do |order|%>
+      <%order.line_items.each do |item| %>
+
+      <%= item.product.title  %>
+      <%= item.product.description %>
+      <%= image_tag item.product.image_url %>
+      <%=  number_to_currency (item.product.price) %>
+      <%= item.quantity%>&times;
+        
+      
+        
+      <%end%>
+<%end%>

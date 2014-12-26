@@ -40,7 +40,7 @@
           </p>
           <div class="jumbotron">
             <legend>Welcome To Our Website!</legend>
-            <ul id="text-size">If you want a great site, you’ve got to test. After you’ve worked on a site for even a few weeks, you can’t see it freshly anymore. You know too much. The only way to find out if it really works is to test it.</ul>
+            <ul id="text-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you want a great site, you’ve got to test. After you’ve worked on a site for even a few weeks, you can’t see it freshly anymore. You know too much. The only way to find out if it really works is to test it.</ul>
           </div>
           <div class="row">
             <% @products.each do |product| %>
@@ -74,17 +74,17 @@ remote: true %>
       <div class="row">
         <div class="col-md-4">
           <legend>Ruby On Rails</legend>
-          <p>&raquo;Rails is a web application development framework written in the Ruby language. It is designed to make programming web applications easier by making assumptions about what every developer needs to get started. It allows you to write less code while accomplishing more than many other languages and frameworks. Experienced Rails developers also report that it makes web application development more fun. </p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rails is a web application development framework written in the Ruby language. It is designed to make programming web applications easier by making assumptions about what every developer needs to get started. It allows you to write less code while accomplishing more than many other languages and frameworks. Experienced Rails developers also report that it makes web application development more fun. </p>
           
         </div>
         <div class="col-md-4">
           <legend>Bootstrap</legend>
-          <p>&raquo;Bootstrap is a powerful front-end framework for faster and easier web development. It includes HTML and CSS based design templates for common user interface components like Typography, Forms, Buttons, Tables, Navigations, Dropdowns, Alerts, Modals, Tabs, Accordion, Carousel and many other as well as optional JavaScript extensions. Bootstrap also gives you ability to create responsive layout with much less efforts. </p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bootstrap is a powerful front-end framework for faster and easier web development. It includes HTML and CSS based design templates for common user interface components like Typography, Forms, Buttons, Tables, Navigations, Dropdowns, Alerts, Modals, Tabs, Accordion, Carousel and many other as well as optional JavaScript extensions. Bootstrap also gives you ability to create responsive layout with much less efforts. </p>
           
        </div>
         <div class="col-md-4">
           <legend>jQuery</legend>
-          <p>&raquo;jQuery is a lightweight, "write less, do more", JavaScript library.
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jQuery is a lightweight, "write less, do more", JavaScript library.
 
 			The purpose of jQuery is to make it much easier to use JavaScript on your website.
 
@@ -96,3 +96,10 @@ remote: true %>
       </div>
 <hr>
 </div>
+
+<%= link_to 'Logout', destroy_user_session_path, method: :Delete, confirm: "Are you sure?", class: 'fa fa-sign-out'%>
+
+  <% if user_signed_in? %>
+<%= current_user.email %>
+
+<% end %>

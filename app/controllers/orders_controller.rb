@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   include CurrentCart
-
+  before_action :authenticate_user!, :unless => proc {|c| c.devise_controller?}
   before_action :set_cart, only: [:new, :create]
 
   before_action :set_order, only: [:show, :edit, :update, :destroy]
@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    respond_with(@order)
+    
   end
 
   def new
@@ -30,23 +30,18 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = current_user.orders.build(order_params)
     @order.add_line_items_from_cart(@cart)
     respond_to do |format|
-  if @order.save
-    Cart.destroy(session[:cart_id])
-    session[:cart_id] = nil
-    format.html { redirect_to root_url, notice:
-    'Thank you for your order.' }
-    format.json { render action: 'show', status: :created,
-    location: @order }
-  else
-    format.html { render action: 'new' }
-    format.json { render json: @order.errors,
-    status: :unprocessable_entity }
+      if @order.save
+        format.html { redirect_to @order}
+        format.json { render action: 'show', status: :created, location: @order }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
   end
-  end
-end
 
 
   def update
