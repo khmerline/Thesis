@@ -38,14 +38,17 @@ ActiveRecord::Schema.define(version: 20141225150433) do
     t.string   "pay_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id_id"
     t.integer  "user_id"
   end
 
-  add_index "orders", ["user_id_id"], name: "index_orders_on_user_id_id"
-
-# Could not dump table "products" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "products", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "image_url"
+    t.decimal  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

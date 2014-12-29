@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/RubymineProjects/Ruby Test/.idea/Ruby Test.iml" filepath="$USER_HOME$/RubymineProjects/Ruby Test/.idea/Ruby Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Thesis.iml" filepath="$PROJECT_DIR$/.idea/Thesis.iml" />
       <module fileurl="file://$PROJECT_DIR$/../myThesis-master/.idea/depot_test.iml" filepath="$PROJECT_DIR$/../myThesis-master/.idea/depot_test.iml" />
     </modules>

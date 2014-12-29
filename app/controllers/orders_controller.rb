@@ -2,8 +2,7 @@ class OrdersController < ApplicationController
 
   include CurrentCart
   before_action :authenticate_user!, :unless => proc {|c| c.devise_controller?}
-  before_action :set_cart, only: [:new, :create]
-
+  before_action :set_cart, only: [:new, :create, :show]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -19,7 +18,8 @@ class OrdersController < ApplicationController
 
   def new
     if @cart.line_items.empty?
-      redirect_to store_url, notice: "Your cart is empty"
+      redirect_to root_path, notice: "Your cart is empty , Please select your items before you are checking out ."
+
     return
     end
       @order = Order.new
@@ -55,6 +55,7 @@ class OrdersController < ApplicationController
   end
 
   private
+
     def set_order
       @order = Order.find(params[:id])
     end
@@ -62,4 +63,8 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:name, :address, :email, :pay_type)
     end
+
+
+
 end
+ 

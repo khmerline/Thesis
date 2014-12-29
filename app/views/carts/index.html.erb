@@ -18,6 +18,8 @@
 
     <tbody>
       <%= content_tag_for(:tr, @carts) do |cart| %>
+
+            <td><%=  cart.id %></td>
             <td><%= link_to 'Show', cart %></td>
         <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
         <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>

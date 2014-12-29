@@ -8,7 +8,7 @@ class LineItemsController < ApplicationController
 
   def index
     @line_items = LineItem.all
-    respond_with(@line_items)
+   
   end
 
   def show

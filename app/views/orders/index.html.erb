@@ -21,7 +21,8 @@
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @orders) do |order| %>
+      <% current_user.orders.each do |order|%>
+      
             <td><%= order.name %></td>
             <td><%= order.address %></td>
             <td><%= order.email %></td>
@@ -30,6 +31,7 @@
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
+      
     </tbody>
   </table>
 </div>
