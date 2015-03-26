@@ -67,7 +67,7 @@ remote: true %>
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
           <div class="list-group">
-            <legend>Catagories</legend>
+            <legend>All Book </legend>
             	<% @products.each do |product|%>
             	<ul>&raquo;<%= link_to product.title, store_show_path(product_id: product) %></ul>
             	<% end %>
@@ -104,9 +104,3 @@ remote: true %>
 <hr>
 </div>
 
-<%= link_to 'Logout', destroy_user_session_path, method: :Delete, confirm: "Are you sure?", class: 'fa fa-sign-out'%>
-
-  <% if user_signed_in? %>
-<%= current_user.email %>
-
-<% end %>

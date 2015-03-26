@@ -4,7 +4,8 @@
     Back
   <% end %>
   
-  <legend>Show order</legend>
+  <legend>Order List</legend>
+   <%= link_to " ", "#", onclick: "printPage()", :class => 'glyphicon glyphicon-print pull-right' %>
 </div>
 
 <div class="col-xs-4">
@@ -33,8 +34,7 @@
             <th>Title</th>
             <th>Price</th>
             <th>Quanity</th>
-            <th></th>
-
+           
            
            
       </tr>
@@ -49,11 +49,12 @@
             <td><%= item.product.title  %></td>
             <td><%=  number_to_currency (item.product.price) %></td>
             <td> <%= item.quantity%>&times;</td>
-
+           
           
           
   <% end %>
-      <td class="pull-right"><%= number_to_currency(@cart.total_price)%></td>
+
+      <td class="pull-right"><%= number_to_currency(@cart.total)%></td>
       <dd><em><%= @order.created_at.strftime("%B %d, %Y, %A") %></em></dd>
   <dd><em><%= @order.created_at.strftime("%H:%M:%S") %></em></dd>
     </tbody>

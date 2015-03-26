@@ -19,9 +19,9 @@
         <th></th>
       </tr>
     </thead>
-
+<% current_user.orders.each do |order|%>
     <tbody>
-      <% current_user.orders.each do |order|%>
+      
       
             <td><%= order.name %></td>
             <td><%= order.address %></td>

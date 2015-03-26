@@ -15,3 +15,6 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+function printPage() {
+    window.print()
+}

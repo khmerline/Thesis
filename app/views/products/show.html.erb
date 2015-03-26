@@ -15,7 +15,7 @@
   <dd><%= @product.title %></dd>
 
   <dt>Description:</dt>
-  <dd><%= @product.description %></dd>
+  <dd><%= @product.read_more %></dd>
 
   <dt>Image url:</dt>
   <dd><%= image_tag @product.image_url, :class => 'img' %></dd>
@@ -24,4 +24,8 @@
   <dd><%= number_to_currency @product.price %></dd>
   
 
+
+
 </dl>
+
+

@@ -1,4 +1,8 @@
 Thesis::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  resources :catagories
+
   get "user/index"
   devise_for :users
   resources :orders

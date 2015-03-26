@@ -1,10 +1,18 @@
+<%= render 'layouts/nav2' %>
+ 
+      </div>
+
+    </div>
+  </nav>
+
 <div class="page-header">
   <%= link_to root_path, :class => 'btn btn-warning' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
   
-  <legend>Show order</legend>
+  <legend>Purchase List</legend>
+  <%= link_to " ", "#", onclick: "printPage()", :class => 'glyphicon glyphicon-print pull-right' %>
 </div>
 
 <div class="col-xs-5">
@@ -41,8 +49,7 @@
             <th>Title</th>
             <th>Price</th>
             <th>Quanity</th>
-            <th></th>
-
+            
            
            
       </tr>
@@ -60,10 +67,10 @@
 
           
           
-  <% end %>
+    <% end %>
      
     </tbody>
-          
+
    
      
      <% end %>

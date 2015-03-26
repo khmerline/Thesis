@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
 
   include CurrentCart
+  
   before_action :authenticate_user!, :unless => proc {|c| c.devise_controller?}
   before_action :set_cart, only: [:new, :create, :show]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
   respond_to :html
 
   def index

@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_catagory_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Catagory
+  <% end %>
+  <h1>Listing catagories</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Cat type</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @catagories) do |catagory| %>
+            <td><%= catagory.cat_type %></td>
+            <td><%= link_to 'Show', catagory %></td>
+        <td><%= link_to 'Edit', edit_catagory_path(catagory) %></td>
+        <td><%= link_to 'Destroy', catagory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

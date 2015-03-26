@@ -1,0 +1,11 @@
+<li class"dropdown"><a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" href="">Categories<span class="caret"></span></a>
+
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation">
+                  <a role="menuitem" tabindex="-1" href="#"> 
+                     <% @catagories.each do |cate| %>
+                     <%= link_to(cate.cat_type, {controller: "store", action: "index", id: cate.id})%>
+                     <% end %>
+                  </a>
+                </li>
+ 
